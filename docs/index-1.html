@@ -1,0 +1,41 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Inconnu(e) </title></head><body>
+<h1 id="minigimp">MINIGIMP</h1>
+<h2 id="par-vallet-gaelle-et-thiel-pierre">Par VALLET Gaëlle et THIEL Pierre</h2>
+<p>=======</p>
+<h2 id="description-generale">Description générale</h2>
+<p><em>minigimp</em> est un programme de traitement d'image codé en C dans le cadre du cours de Programmation et Algorithmique 1 en IMAC. Il supporte en entrée les fichiers images de type PPM (P6), et renvoie un fichier image de ce même format.
+Il peut être compilé et utilisé en l'état sous Linux.</p>
+<p>Usage : $ minigimp mon_image.ppm [-h] [--histo] [|code_lut|[-|code_enveloppe|]<em> [_|param|]</em>]* [-o Image_sortie.ppm]
+Les LUT peuvent êtres concaténés sans restriction</p>
+<h2 id="on-prendra-le-repertoire-racine-du-projet-comme-reference-dans-tous-les-chemins-indiques">On prendra le répertoire racine du projet comme référence  dans tous les chemins indiqués.</h2>
+<h2 id="arguments">Arguments</h2>
+<p>Options :</p>
+<ul>
+<li>-h : aide;</li>
+<li>-o : changement de chemin du fichier de sortie;</li>
+<li>--histo ou -g : enregistrement des histogrammes des fichiers d'entrée et de sortie;</li>
+</ul>
+<p>LUT : les intensités sont en pourcentage.<br />
+<em> ADDLUM et DIMLUM : <em>ADDLUM [intensité]</em> ;<br />
+    $ ./bin/minigimp ./images/test.ppm ADDLUM 30 -o ./images/test_addlum_30.ppm --histo<br />
+    $ ./bin/minigimp ./images/test.ppm DIMLUM 60 -o ./images/test_dimlum_60.ppm --histo<br />
+</em> ADDCON et DIMCON : <em>ADDCON [intensité]</em>;<br />
+    $ ./bin/minigimp ./images/test.ppm ADDCON 50 -o ./images/test_addcon_50.ppm --histo<br />
+    $ ./bin/minigimp ./images/test.ppm DIMCON 80 -o ./images/test_dimcon_80.ppm --histo<br />
+<em> INVERT : <em>INVERT</em>;<br />
+    $ ./bin/minigimp ./images/test.ppm INVERT -o ./images/test_invert.ppm --histo<br />
+</em> NOIRETBLANC : <em>NOIRETBLANC</em>;<br />
+    $ ./bin/minigimp ./images/test.ppm NOIRETBLANC -o ./images/test_noietblanc.ppm --histo<br />
+<em> SEPIA : <em>SEPIA [intensité gradient(ADDLUM-ELLIPSE)] [demi-axe horizontal (ELLIPSE)] [demi-axe-vertical (ELLIPSE)]</em>;<br />
+    $ ./bin/minigimp ./images/test.ppm SEPIA 70 80 80 -o ./images/test_sepia_70_80_80.ppm --histo<br />
+</em> FLOU et FLOU2 : <em>FLOU [intensité] [rayon (en nombre de pixels)]</em>;<br />
+    $ ./bin/minigimp ./images/test.ppm FLOU 80 8 -o ./images/test_flou_80_8.ppm --histo<br />
+    $ ./bin/minigimp ./images/test.ppm SEPIA 80 8 -o ./images/test_flou2_80_8.ppm --histo<br />
+FLOU est itératif et naïf, FLOU2 est récursif et très imprécis, mais plus efficace en temps.  </p>
+<p>Enveloppes :<br />
+<em> ELLIPSE et RELLIPSE : _LUT-ELLIPSE [intensité gradient] [[autre paramètre de LUT]</em> ]* [demi-axe horizontal (pourcentage de largeur/2)] [demi-axe-vertical(pourcentage de hauteur/2]_;<br />
+    $ ./bin/minigimp ./images/test.ppm FLOU-ELLIPSE 70 10 30 30 -o ./images/test_flou-ellipse_70_10_30_30.ppm --histo<br />
+    $ ./bin/minigimp ./images/test.ppm ADDLUM-RELLIPSE 40 60 80 -o ./images/test_addlum-rellipse_40_60_80.ppm --histo<br />
+ELLIPSE compose un gradient vers l'extérieur de l'ellipse, et RELLIPSE vers l'intérieur.  </p>
+<hr />
+</body></html>
