@@ -2,7 +2,7 @@
 
 Transformation* preparationTransfo(int*tailleVectTransfo, int argc,char *argv[],typeSortie *type) {
 	unsigned int nbChoixTransfo=5;
-	char *choixTransfo[] = {"MIROIRHORIZONTAL","MIROIRVERTICAL","REDIMENSIONNER","PIXELLISER","COMPRESSER"};
+	char *choixTransfo[] = {"MIROIRHORIZONTAL","MIROIRVERTICAL","REDIMENSIONNER","PIXELISER","COMPRESSER"};
 	/*Il est important de garder le même ordre que l'énumération.*/	
 	int nbParametresTransfo[] = {0,0,2,2,1};
 	*tailleVectTransfo = compterTransfo(argc,argv,choixTransfo,nbChoixTransfo);
@@ -32,7 +32,7 @@ void appliquerTransfo(Image**img,Transformation *transfo) {
 		case CONSEILLERDESGRACESHORIZONTAL : miroirHorizontal(*img); break;
 		case CONSEILLERDESGRACESVERTICAL : miroirVertical(*img);break;
 		case REDIMENSIONNER : redimensionner(img,transfo); break;
-		case PIXELLISER : pixelliser(*img,transfo); break;
+		case PIXELISER : pixeliser(*img,transfo); break;
 		case COMPRESSER : changerLumMax(*img,transfo); break;
 		/*case NOIRETBLANC : break;
 		case INVERT : break;*/

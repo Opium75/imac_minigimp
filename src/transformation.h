@@ -9,7 +9,7 @@
 
 #define NB_PARAMETRES_MAX_TRANSFORMATION 3
 
-typedef enum {CONSEILLERDESGRACESHORIZONTAL,CONSEILLERDESGRACESVERTICAL,REDIMENSIONNER,PIXELLISER,COMPRESSER} nomTransformation;
+typedef enum {CONSEILLERDESGRACESHORIZONTAL,CONSEILLERDESGRACESVERTICAL,REDIMENSIONNER,PIXELISER,COMPRESSER} nomTransformation;
 
 typedef struct {
 	nomTransformation nom;
@@ -23,7 +23,7 @@ void miroirVertical(Image *img);
 void miroirHorizontal(Image *img);
 
 void redimensionner(Image **img, Transformation *transfo);
-void pixelliser(Image *img, Transformation *transfo);
+void pixeliser(Image *img, Transformation *transfo);
 
 void changerLumMax(Image *img, Transformation *transfo);
 

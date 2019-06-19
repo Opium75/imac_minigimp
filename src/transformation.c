@@ -321,7 +321,7 @@ void redimensionner(Image **img, Transformation *transfo) {
 	*img = imgRedim;
 }
 
-void pixelliser(Image *img, Transformation *transfo) {
+void pixeliser(Image *img, Transformation *transfo) {
 	int colonne, ligne, cj, lj;
 	int i;
 	int h,v;
